@@ -43,19 +43,19 @@ const Footer = () => {
                     <h3>follow us</h3>
                     <div className="footer-social--icons">
                         <div>
-                            <a href="#"  target='_blank'>
+                            <a target='_blank'>
                             <AiFillInstagram className='icons'/>
                             </a>
                             
                         </div>
                         <div>
-                            <a href="#"  target='_blank'>
+                            <a  target='_blank'>
                             <BsDiscord className='icons'/>
                             </a>
                             
                         </div>
                         <div>
-                            <a href="#"  target='_blank'>
+                            <a  target='_blank'>
                             <AiFillYoutube className='icons'/>
                             </a>
                             
