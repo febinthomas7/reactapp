@@ -6,7 +6,7 @@ import FormatPrice from '../helpers/FormatPrice';
 import {Button} from './Button'
 
 const FilterSection = () => {
-const {updateFilterValue,filter:{text,colors,category,price,minPrice,maxPrice},all_products,clearFilters} = useFilterContext();
+const {updateFilterValue,filter:{text,colors,price,minPrice,maxPrice},all_products,clearFilters} = useFilterContext();
 
 
   const getUniqueData =(data,property)=>{
