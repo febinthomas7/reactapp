@@ -13,8 +13,10 @@ const clientid = process.env.REACT_APP_CLIENT_ID;
 root.render(
   <StrictMode>
     <Auth0Provider
-    domain={domain}
-    clientId={clientid}
+    // domain={domain}
+    // clientId={clientid}
+   domain="dev-zjzyu7drxl0tvlz3.us.auth0.com"
+    clientId="L6sHnHJ0ayQCJHPDmOL8bFmaD9xsoD5L"
     authorizationParams={{
       redirect_uri: window.location.origin
     }}
