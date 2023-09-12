@@ -7,9 +7,10 @@ import { FilterProvider } from './context/FilterContext';
 import { AppProvider } from './context/ProductContext';
 import { StyledEngineProvider } from '@mui/material';
 import { CartProvider } from './context/Cart_Context';
-import { Auth0Provider } from '@auth0/auth0-react';const root = ReactDOM.createRoot(document.getElementById('root'));
-const domain = process.env.REACT_APP_AUTH_DOMAIN;
-const clientid = process.env.REACT_APP_CLIENT_ID;
+import { Auth0Provider } from '@auth0/auth0-react';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+// const domain = process.env.REACT_APP_AUTH_DOMAIN;
+// const clientid = process.env.REACT_APP_CLIENT_ID;
 root.render(
   <StrictMode>
     <Auth0Provider
