@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const Style = createGlobalStyle`
 
@@ -99,6 +99,8 @@ export const Style = createGlobalStyle`
     display:grid;
   
   }
+
+  
   
   .grid-three-column {
     grid-template-columns: repeat(3, 1fr);

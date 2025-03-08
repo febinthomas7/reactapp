@@ -30,8 +30,8 @@ const initialState ={
  const [state,dispatch] = useReducer(reducer,initialState)
 
 
-    const addToCart = (id,color,amount,product)=>{
-        dispatch({type:"CART_ITEM", payload:{id,color,amount,product}})
+    const addToCart = (id,amount,product)=>{
+        dispatch({type:"CART_ITEM", payload:{id,amount,product}})
 
     }
 
