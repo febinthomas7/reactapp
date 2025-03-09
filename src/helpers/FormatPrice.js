@@ -1,4 +1,4 @@
-const FormatPrice = ({ price, discountPercentage }) => {
+const FormatPrice = ({ price, discountPercentage, shippingfee }) => {
   const exchangeRate = 82.74;
   const converted = price * exchangeRate;
 
@@ -11,7 +11,7 @@ const FormatPrice = ({ price, discountPercentage }) => {
     style: "currency",
     currency: "INR",
     maximumFractionDigits: 2,
-  }).format(finalPrice);
+  }).format(shippingfee ? shippingfee : finalPrice);
 };
 
 export default FormatPrice;

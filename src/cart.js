@@ -1,104 +1,100 @@
-import React from 'react'
-import { useCartContext } from './context/Cart_Context'
-import { styled } from 'styled-components';
-import CartItem from './components/CartItem';
-import { Button } from './components/Button';
-import { NavLink } from 'react-router-dom';
-import FormatPrice from './helpers/FormatPrice';
+import React from "react";
+import { useCartContext } from "./context/Cart_Context";
+import { styled } from "styled-components";
+import CartItem from "./components/CartItem";
+import { Button } from "./components/Button";
+import { NavLink } from "react-router-dom";
+import FormatPrice from "./helpers/FormatPrice";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Cart = () => {
-  const {cart,clearChat,total_amount,shipping_fee}= useCartContext();
-  const { isAuthenticated,user} = useAuth0();
+  const { cart, clearChat, total_amount, shipping_fee } = useCartContext();
+  const { isAuthenticated, user } = useAuth0();
 
-  if(cart.length === 0){
-    return(
-      <Emptycart >
+  if (cart.length === 0) {
+    return (
+      <Emptycart>
         <h3>No Item In Cart.</h3>
       </Emptycart>
-      
-    )
+    );
   }
   return (
     <Wrapper>
-
-      <div className='container'>
+      <div className="container">
         {isAuthenticated && (
-          <div className='profile'>
-            <img className='profilePhoto' src={user.picture} alt={user.name} />
-            <p>{user.name}</p>
-            </div>
+          <div className="profile">
+            <img
+              className="profilePhoto"
+              src={user?.picture}
+              alt={user?.name}
+            />
+            <p>{user?.name}</p>
+          </div>
         )}
       </div>
       <div className="container">
-        
         <div className="cart-heading grid grid-five-column">
           <p>item</p>
           <p className="cart_hide">price</p>
-          
+
           <p>quantity</p>
           <p>subTotal</p>
           <p>remove</p>
-
-
         </div>
         <hr />
         <div className="cart-item">
-          {
-            cart.map((e)=>{
-
-              return <CartItem key={e.id} {...e}/>
-            })
-          }
+          {cart.map((e) => {
+            return <CartItem key={e.id} {...e} />;
+          })}
         </div>
         <div className="cart-two-button">
-          <NavLink to="/product" >
+          <NavLink to="/product">
             <Button>Continue Shopping</Button>
-
           </NavLink>
-          <Button className='btn' onClick={clearChat}>clear cart</Button>
+          <Button className="btn" onClick={clearChat}>
+            clear cart
+          </Button>
         </div>
 
         <div className="order-total-amount">
-          <div className='order'>
-           <div>
-            <p>subtotal:</p>
-            <p className='price'><FormatPrice price={total_amount}></FormatPrice></p>
-            
-           </div>
-           <div>
-            <p>shipping fee:</p>
-            <p className='price'><FormatPrice price={shipping_fee}></FormatPrice></p>
-            
-           </div>
-           <hr />
-           <div>
-            <p>total amount:</p>
-            <p className='price'><FormatPrice price={total_amount + +shipping_fee}></FormatPrice></p>
-            
+          <div className="order">
+            <div>
+              <p>subtotal:</p>
+              <p className="price">
+                <FormatPrice price={total_amount}></FormatPrice>
+              </p>
+            </div>
+            <div>
+              <p>shipping fee:</p>
+              <p className="price">
+                <FormatPrice shippingfee={shipping_fee}></FormatPrice>
+              </p>
+            </div>
+            <hr />
+            <div>
+              <p>total amount:</p>
+              <p className="price">
+                <FormatPrice price={total_amount + +shipping_fee}></FormatPrice>
+              </p>
+            </div>
+          </div>
 
-           </div>
-           </div>
-
-           <Button className='btn'>order now</Button>
+          <Button className="btn">order now</Button>
         </div>
       </div>
-
     </Wrapper>
-  )
-} 
+  );
+};
 
 const Emptycart = styled.section`
+  height: 28vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 
-height: 28vh;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-    p{
-
-    }
-`
+  p {
+  }
+`;
 const Wrapper = styled.section`
 
 .order-total-amount{
@@ -206,6 +202,6 @@ const Wrapper = styled.section`
   color:red;
   cursor:pointer;
 }
-`
+`;
 
-export default Cart
+export default Cart;

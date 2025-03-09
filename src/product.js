@@ -1,53 +1,49 @@
-
-import { styled } from 'styled-components'
-import ProductList from './components/ProductList'
-import Sort from './components/Sort'
-import FilterSection from './components/FilterSection'
-import {useFilterContext} from './context/FilterContext'
-import LinearIndeterminate from './components/LinearIndeterminate'
+import { styled } from "styled-components";
+import ProductList from "./components/ProductList";
+import Sort from "./components/Sort";
+import FilterSection from "./components/FilterSection";
+import { useFilterContext } from "./context/FilterContext";
+import LinearIndeterminate from "./components/LinearIndeterminate";
 
 const Product = () => {
-  const {loading} = useFilterContext();
+  const { loading } = useFilterContext();
 
-  if(loading){
-    return <LinearIndeterminate/>
+  if (loading) {
+    return <LinearIndeterminate />;
   }
   return (
     <Wrapper>
-      <div className="container grid grid-filter-column">
+      <div className="container grid grid-filter-column grid-filter-rows">
         <div>
-          <FilterSection/>
+          <FilterSection />
         </div>
-        <section className='product-view--sort'>
+        <section className="product-view--sort">
           <div className="sort-filter">
-            <Sort/>
+            <Sort />
           </div>
 
           <div className="main-product">
-            <ProductList/>
+            <ProductList />
           </div>
         </section>
       </div>
-
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.section`
-
-.grid-filter-column{
-  grid-template-columns: 0.2fr 1fr;
-  padding-top: 40px;
-}
-
-@media(max-width:${({theme})=> theme.media.phone}){
-  .grid-filter-column{
-    grid-template-columns: 1fr;
+  .grid-filter-column {
+    grid-template-columns: 0.2fr 1fr;
     padding-top: 40px;
-
-
   }
-}
-`
 
-export default Product
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    .grid-filter-rows {
+      grid-template-rows: 0fr 1fr;
+      grid-template-columns: none;
+      padding-top: 40px;
+    }
+  }
+`;
+
+export default Product;

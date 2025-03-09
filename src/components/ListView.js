@@ -144,6 +144,13 @@ const Wrapper = styled.section`
       }
     }
   }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    .card {
+      border-radius: 1rem;
+      padding: 4px;
+      border: 1px solid grey;
+    }
+  }
 `;
 
 export default ListView;
